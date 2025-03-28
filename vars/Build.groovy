@@ -1,4 +1,4 @@
 def call(String ImageName, String tags, String Username){
 echo 'this is a build step'
-sh: "docker build -t "${Username}"/"${ImageName}":"${tags}" ."
+sh "docker build -t "${Username}"/"${ImageName}":"${tags}" ."
 }
