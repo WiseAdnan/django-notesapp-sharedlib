@@ -1,4 +1,3 @@
-@NonCPS
 def call(String ProjectName, String ImageTags){
   withCredentials([usernamePassword(
                     credentialsId:"DockerHub-cred",
