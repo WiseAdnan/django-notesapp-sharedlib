@@ -1,4 +1,4 @@
-def call(String ProjectName, String tags, String Username){
+def call(String ImageName, String tags, String Username){
 echo 'this is a build step'
-sh: "docker build -t "${notes-app ."
+sh: "docker build -t "${ImageName}" ."
 }
