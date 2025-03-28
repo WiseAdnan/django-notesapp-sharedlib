@@ -10,4 +10,7 @@ def call(String ProjectName, String ImageTags){
                 sh "docker push \$DOCKER_USER/${ProjectName}:${ImageTags}"
    }
 }
+}
+}
+
 
