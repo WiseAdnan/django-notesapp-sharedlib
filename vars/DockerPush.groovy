@@ -3,8 +3,11 @@ def call(String ProjectName, String ImageTags){
                     credentialsId:"DockerHub-cred",
                     usernameVariable:"dockerHubUser", 
                     passwordVariable:"dockerHubPass")]){
-                sh "echo $dockerHubPass | docker login -u $dockerHubUser --password-stdin"
-                sh "docker image tag ${ProjectName}:${ImageTags} $dockerHubUser/${ProjectName}:${ImageTags}"
-                sh "docker push $dockerHubUser/${ProjectName}:${ImageTags}"
+
+    withEnv(["DOCKER_USER=$dockerHubUser", "DOCKER_PASS=$dockerHubPass"]) {
+                sh "echo \$DOCKER_PASS | docker login -u \$DOCKER_USER --password-stdin"
+                sh "docker image tag ${ProjectName}:${ImageTags} \$DOCKER_USER/${ProjectName}:${ImageTags}"
+                sh "docker push \$DOCKER_USER/${ProjectName}:${ImageTags}"
    }
 }
+
