@@ -11,6 +11,5 @@ def call(String ProjectName, String ImageTags){
    }
 }
 }
-}
 
 
